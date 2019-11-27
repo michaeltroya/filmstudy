@@ -5,13 +5,13 @@ import axios from 'axios';
 import './index.css';
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(4);
+  const [allMovies, setAllMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
 
-  let movieDiscoverList = [];
-
   useEffect(() => {
-    for (let i = 1; i < 3; i++) {
+    let movieDiscoverList = [];
+    for (let i = 1; i < page; i++) {
       axios
         .get(
           `https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}`
@@ -19,11 +19,11 @@ function App() {
         .then(res => {
           for (let x = 0; x < res.data.results.length; x++) {
             movieDiscoverList.push(res.data.results[x]);
-            setMovies([...movieDiscoverList]);
+            setAllMovies([...movieDiscoverList]);
           }
         });
     }
-  }, []);
+  }, [page]);
 
   const getDetailsFromIds = () => {
     selectedMovies.forEach(id => {
@@ -33,6 +33,10 @@ function App() {
     });
   };
 
+  const handleLoadMore = () => {
+    setPage(page + 1);
+  };
+
   const handleClear = () => {
     setSelectedMovies([]);
   };
@@ -40,10 +44,10 @@ function App() {
   return (
     <div>
       <button onClick={getDetailsFromIds}>SHOW SELECTED</button>
-
       <button onClick={handleClear}>CLEAR SELECTED</button>
+
       <div className="movies-container">
-        {movies.map(movie => (
+        {allMovies.map(movie => (
           <div
             key={movie.id}
             className={`movie-info ${selectedMovies.includes(movie.id) ? 'movie-selected' : 'null'}`}
@@ -54,6 +58,7 @@ function App() {
           </div>
         ))}
       </div>
+      <button onClick={handleLoadMore}>LOAD MORE</button>
     </div>
   );
 }
