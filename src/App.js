@@ -26,14 +26,9 @@ function App() {
   }, []);
 
   const getDetailsFromIds = () => {
-    let movieIds = [];
-    let finalList = [];
-    for (let i = 0; i < movies.length; i++) {
-      movieIds.push(movies[i].id);
-    }
-    movieIds.forEach(id => {
+    selectedMovies.forEach(id => {
       axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}&language=en-US&append_to_response=credits`).then(res => {
-        finalList.push(res.data);
+        console.log(res.data.title);
       });
     });
   };
@@ -44,7 +39,7 @@ function App() {
 
   return (
     <div>
-      <button onClick={() => console.log(selectedMovies)}>SHOW SELECTED</button>
+      <button onClick={getDetailsFromIds}>SHOW SELECTED</button>
 
       <button onClick={handleClear}>CLEAR SELECTED</button>
       <div className="movies-container">
