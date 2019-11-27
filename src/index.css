@@ -1,0 +1,26 @@
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.movie-info:hover {
+  background-color: lightblue;
+}
+
+.movie-selected {
+  background-color: lightcoral !important;
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+}
