@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { KEY, IMG_URL } from './util/api';
+import { KEY } from './util/api';
 import axios from 'axios';
+
+import MovieList from './components/MovieList';
 
 import './index.css';
 
 function App() {
-  const [page, setPage] = useState(4);
+  const [page, setPage] = useState(2);
   const [allMovies, setAllMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
 
@@ -34,7 +36,7 @@ function App() {
   };
 
   const handleLoadMore = () => {
-    setPage(page + 1);
+    setPage(page + 2);
   };
 
   const handleClear = () => {
@@ -45,19 +47,7 @@ function App() {
     <div>
       <button onClick={getDetailsFromIds}>SHOW SELECTED</button>
       <button onClick={handleClear}>CLEAR SELECTED</button>
-
-      <div className="movies-container">
-        {allMovies.map(movie => (
-          <div
-            key={movie.id}
-            className={`movie-info ${selectedMovies.includes(movie.id) ? 'movie-selected' : 'null'}`}
-            onClick={() => setSelectedMovies([...selectedMovies, movie.id])}
-          >
-            <img src={`${IMG_URL}${movie.poster_path}`} alt="poster" className="movie-img" />
-            <h3>{movie.title}</h3>
-          </div>
-        ))}
-      </div>
+      <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
       <button onClick={handleLoadMore}>LOAD MORE</button>
     </div>
   );
