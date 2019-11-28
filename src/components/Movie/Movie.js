@@ -1,6 +1,6 @@
 import React from 'react';
-import { IMG_URL } from '../util/api';
-import '../index.css';
+import { IMG_URL } from '../../util/api';
+import '../../index.css';
 
 function Movie({ movie, selectedMovies, setSelectedMovies }) {
   return (

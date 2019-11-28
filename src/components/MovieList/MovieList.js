@@ -1,7 +1,7 @@
 import React from 'react';
-import Movie from './Movie';
+import Movie from '../Movie/Movie';
 
-import '../index.css';
+import '../../index.css';
 
 function MovieList({ allMovies, selectedMovies, setSelectedMovies }) {
   return (

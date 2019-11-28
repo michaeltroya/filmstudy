@@ -23,3 +23,15 @@
 
 .movie-img {
 }
+
+.test {
+  width: 100%;
+  position: relative;
+}
+
+.button-bar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: lightgreen;
+  padding: 1rem 2rem;
+}

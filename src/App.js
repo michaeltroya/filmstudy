@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { KEY } from './util/api';
 import axios from 'axios';
 
-import MovieList from './components/MovieList';
+import MovieList from './components/MovieList/MovieList';
+import ButtonBar from './components/ButtonBar/ButtonBar';
 
 import './index.css';
 
@@ -27,7 +28,7 @@ function App() {
     }
   }, [page]);
 
-  const getDetailsFromIds = () => {
+  const handleGo = () => {
     selectedMovies.forEach(id => {
       axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}&language=en-US&append_to_response=credits`).then(res => {
         console.log(res.data.title);
@@ -44,11 +45,9 @@ function App() {
   };
 
   return (
-    <div>
-      <button onClick={getDetailsFromIds}>SHOW SELECTED</button>
-      <button onClick={handleClear}>CLEAR SELECTED</button>
+    <div className="test">
       <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
-      <button onClick={handleLoadMore}>LOAD MORE</button>
+      <ButtonBar handleClear={handleClear} handleLoadMore={handleLoadMore} handleGo={handleGo} />
     </div>
   );
 }
