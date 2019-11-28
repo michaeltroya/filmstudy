@@ -5,12 +5,15 @@ import axios from 'axios';
 import MovieList from './components/MovieList/MovieList';
 import ButtonBar from './components/ButtonBar/ButtonBar';
 
+import { Container } from 'react-bootstrap';
+
 import './index.css';
 
 function App() {
   const [page, setPage] = useState(2);
   const [allMovies, setAllMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
+  const [selectedMoviesDetails, setSelectedMoviesDetails] = useState({});
 
   useEffect(() => {
     let movieDiscoverList = [];
@@ -45,8 +48,10 @@ function App() {
   };
 
   return (
-    <div className="test">
-      <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
+    <div>
+      <Container>
+        <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
+      </Container>
       <ButtonBar handleClear={handleClear} handleLoadMore={handleLoadMore} handleGo={handleGo} />
     </div>
   );
