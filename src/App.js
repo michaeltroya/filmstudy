@@ -63,7 +63,12 @@ function App() {
   return (
     <Fragment>
       <VertModal show={modalShow} selectedMoviesDetails={selectedMoviesDetails} onHide={() => setModalShow(false)} />
-      <ButtonBar handleClear={handleClear} handleLoadMore={() => setPage(page + 2)} handleGo={() => setModalShow(true)} />
+      <ButtonBar
+        handleClear={handleClear}
+        handleLoadMore={() => setPage(page + 2)}
+        handleGo={() => setModalShow(true)}
+        selectedMoviesIsEmpty={selectedMovies.length == 0 ? true : false}
+      />
       <Container fluid>
         <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
       </Container>
