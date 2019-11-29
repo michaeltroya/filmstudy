@@ -24,7 +24,7 @@ const calculate = ({ revenues, runtimes, genres, directors, producers }) => {
     }
 
     for (var k in frequency) {
-      if (frequency[k] == maxFreq) {
+      if (frequency[k] === maxFreq) {
         modes.push(k);
       }
     }
