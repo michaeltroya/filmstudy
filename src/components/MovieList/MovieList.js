@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap';
 
 import '../../index.css';
 
-function MovieList({ allMovies, selectedMovies, setSelectedMovies }) {
+const MovieList = ({ allMovies, selectedMovies, setSelectedMovies }) => {
   return (
     <div className="movies-container">
       <Row className="justify-content-center">
@@ -15,6 +15,6 @@ function MovieList({ allMovies, selectedMovies, setSelectedMovies }) {
       </Row>
     </div>
   );
-}
+};
 
 export default MovieList;

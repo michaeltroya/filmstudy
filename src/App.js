@@ -7,13 +7,17 @@ import MovieList from './components/MovieList/MovieList';
 import ButtonBar from './components/ButtonBar/ButtonBar';
 import VertModal from './components/VertModal/VertModal';
 
+import calculate from './calculate';
+
 import { Container } from 'react-bootstrap';
 
-function App() {
+const App = () => {
   const [page, setPage] = useState(2);
   const [allMovies, setAllMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
   const [selectedMoviesDetails, setSelectedMoviesDetails] = useState({});
+  const [movieCalculations, setMovieCalculations] = useState({});
+
   const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
@@ -60,20 +64,25 @@ function App() {
     setSelectedMoviesDetails({});
   };
 
+  const handleGo = () => {
+    setMovieCalculations({ ...calculate(selectedMoviesDetails) });
+    setModalShow(true);
+  };
+
   return (
     <Fragment>
-      <VertModal show={modalShow} selectedMoviesDetails={selectedMoviesDetails} onHide={() => setModalShow(false)} />
+      <VertModal show={modalShow} movieCalculations={movieCalculations} onHide={() => setModalShow(false)} />
       <ButtonBar
         handleClear={handleClear}
         handleLoadMore={() => setPage(page + 2)}
-        handleGo={() => setModalShow(true)}
-        selectedMoviesIsEmpty={selectedMovies.length == 0 ? true : false}
+        handleGo={handleGo}
+        selectedMoviesIsEmpty={selectedMovies.length === 0 ? true : false}
       />
       <Container fluid>
         <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
       </Container>
     </Fragment>
   );
-}
+};
 
 export default App;

@@ -5,7 +5,7 @@ import { Col } from 'react-bootstrap';
 
 import '../../index.css';
 
-function Movie({ movie, selectedMovies, setSelectedMovies }) {
+const Movie = ({ movie, selectedMovies, setSelectedMovies }) => {
   const addOrRemoveSelected = () => {
     if (selectedMovies.includes(movie.id)) {
       setSelectedMovies(selectedMovies.filter(item => item !== movie.id));
@@ -22,5 +22,5 @@ function Movie({ movie, selectedMovies, setSelectedMovies }) {
       </div>
     </Col>
   );
-}
+};
 export default Movie;
