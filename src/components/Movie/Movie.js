@@ -1,9 +1,7 @@
 import React from 'react';
 import { IMG_URL } from '../../util/api';
 
-import { Col } from 'react-bootstrap';
-
-import '../../index.css';
+import { Col, Card } from 'react-bootstrap';
 
 const Movie = ({ movie, selectedMovies, setSelectedMovies }) => {
   const addOrRemoveSelected = () => {
@@ -15,11 +13,13 @@ const Movie = ({ movie, selectedMovies, setSelectedMovies }) => {
   };
 
   return (
-    <Col xs={12} sm={3} md={2} className={`${selectedMovies.includes(movie.id) ? 'movie movie-selected' : 'movie'}`} onClick={addOrRemoveSelected}>
-      <div className="movie-img-container d-flex justify-content-center flex-column">
-        <img src={`${IMG_URL}${movie.poster_path}`} alt="poster" className="movie-img" />
-        <h5>{movie.title}</h5>
-      </div>
+    <Col xs={6} sm={3} md={3}>
+      <Card className={`${selectedMovies.includes(movie.id) ? 'movie movie-selected' : 'movie'}`} onClick={addOrRemoveSelected}>
+        <Card.Img variant="top" src={`${IMG_URL}${movie.poster_path}`} />
+        <Card.Body className="d-flex justify-content-center">
+          <Card.Title>{movie.title}</Card.Title>
+        </Card.Body>
+      </Card>
     </Col>
   );
 };

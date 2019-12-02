@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { KEY } from './util/api';
-import './index.css';
+
 import axios from 'axios';
 
 import MovieList from './components/MovieList/MovieList';
@@ -10,6 +10,8 @@ import VertModal from './components/VertModal/VertModal';
 import calculate from './calculate';
 
 import { Container } from 'react-bootstrap';
+
+import './index.css';
 
 const App = () => {
   const [page, setPage] = useState(2);
@@ -72,15 +74,15 @@ const App = () => {
   return (
     <Fragment>
       <VertModal show={modalShow} movieCalculations={movieCalculations} onHide={() => setModalShow(false)} />
+      <Container fluid>
+        <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
+      </Container>
       <ButtonBar
         handleClear={handleClear}
         handleLoadMore={() => setPage(page + 2)}
         handleGo={handleGo}
         selectedMoviesIsEmpty={selectedMovies.length === 0 ? true : false}
       />
-      <Container fluid>
-        <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
-      </Container>
     </Fragment>
   );
 };

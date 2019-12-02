@@ -1,12 +1,21 @@
 import React from 'react';
-import '../../index.css';
+
+import { Button } from 'react-bootstrap';
 
 const ButtonBar = ({ handleClear, handleLoadMore, handleGo, selectedMoviesIsEmpty }) => {
   return (
     <div className="button-bar">
-      {selectedMoviesIsEmpty ? null : <button onClick={handleGo}>GO</button>}
-      <button onClick={handleClear}>CLEAR</button>
-      <button onClick={handleLoadMore}>LOAD MORE MOVIES</button>
+      {selectedMoviesIsEmpty ? null : (
+        <Button variant="success" onClick={handleGo}>
+          GO
+        </Button>
+      )}
+      <Button onClick={handleLoadMore}>LOAD MORE MOVIES</Button>
+      {selectedMoviesIsEmpty ? null : (
+        <Button variant="danger" onClick={handleClear}>
+          CLEAR
+        </Button>
+      )}
     </div>
   );
 };

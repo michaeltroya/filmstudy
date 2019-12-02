@@ -3,8 +3,6 @@ import Movie from '../Movie/Movie';
 
 import { Row } from 'react-bootstrap';
 
-import '../../index.css';
-
 const MovieList = ({ allMovies, selectedMovies, setSelectedMovies }) => {
   return (
     <div className="movies-container">
