@@ -36,29 +36,59 @@ const VertModal = ({
   };
 
   return (
-    <Modal show={show} onHide={onHide} size="lg" centered>
-      <Modal.Header closeButton>
-        <Modal.Title>Your Results</Modal.Title>
+    <Modal show={show} onHide={onHide} size="lg" centered className="vert-modal-backdrop">
+      <Modal.Header closeButton className="vert-modal-header">
+        <Modal.Title>Based on the movies you've watched...</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <h2>Based on your selections you've watched...</h2>
+      <Modal.Body className="vert-modal-body">
+        <Container className="vert-modal-container">
+          <Row>
+            <h3>Your movies have made... </h3>
+            <h4>{totalRevenue}</h4>
+          </Row>
 
-        {totalRuntimeDays === '0' ? null : <h2>{`${totalRuntimeDays} Day(s)`}</h2>}
-        {totalRuntimeHours ? <h2>{formatTime('Hour', totalRuntimeHours)}</h2> : null}
-        {totalRuntimeMinutes ? <h2>{formatTime('Minute', totalRuntimeMinutes)}</h2> : null}
-
-        <h2>{totalRevenue}</h2>
-
-        <ul>
-          {favouriteDirectors === undefined || favouriteDirectors.length === 0 ? null : favouriteDirectors.map((item, i) => <li key={i}>{item}</li>)}
-        </ul>
-        <ul>
-          {favouriteProducers === undefined || favouriteProducers.length === 0 ? null : favouriteProducers.map((item, i) => <li key={i}>{item}</li>)}
-        </ul>
-        <ul>{favouriteGenres === undefined || favouriteGenres.length === 0 ? null : favouriteGenres.map((item, i) => <li key={i}>{item}</li>)}</ul>
+          <Row>
+            <h2>You've spent... </h2>
+          </Row>
+          <Row>
+            {totalRuntimeDays === '0' ? null : (
+              <Col>
+                <h3>{`${totalRuntimeDays} Day(s)`}</h3>
+              </Col>
+            )}
+            <Col>{totalRuntimeHours ? <h2>{formatTime('Hour', totalRuntimeHours)}</h2> : null}</Col>
+            <Col>{totalRuntimeMinutes ? <h2>{formatTime('Minute', totalRuntimeMinutes)}</h2> : null}</Col>
+          </Row>
+          <Row>
+            <h3>Your Favourite... </h3>
+          </Row>
+          <Row>
+            <Col>
+              <ul>
+                {favouriteDirectors === undefined || favouriteDirectors.length === 0
+                  ? null
+                  : favouriteDirectors.map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+            </Col>
+            <Col>
+              <ul>
+                {favouriteProducers === undefined || favouriteProducers.length === 0
+                  ? null
+                  : favouriteProducers.map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+            </Col>
+            <Col>
+              <ul>
+                {favouriteGenres === undefined || favouriteGenres.length === 0 ? null : favouriteGenres.map((item, i) => <li key={i}>{item}</li>)}
+              </ul>
+            </Col>
+          </Row>
+        </Container>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={onHide}>Close</Button>
+      <Modal.Footer className="vert-modal-footer">
+        <Button variant="outline-dark" onClick={onHide}>
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   );

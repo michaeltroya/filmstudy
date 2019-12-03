@@ -5,29 +5,54 @@
 .movie {
   cursor: pointer;
   margin-bottom: 1.5rem;
+  background-color: #ffc107 !important;
 }
 
 .movie:hover {
-  background-color: lightblue;
+  background-color: #fad051 !important;
 }
 
 .movie-selected {
-  background-color: lightcoral !important;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  background-color: #dc3545 !important;
+  color: white;
 }
 
 .button-bar {
   position: fixed;
   display: flex !important ;
   justify-content: space-evenly !important;
-  background-color: #eaeaea;
+  background-color: #0a0a0a;
   padding: 1rem 2rem;
   width: 100%;
   bottom: 0;
   z-index: 10;
 }
 
+.vert-modal-backdrop {
+  background-color: #0a0a0a !important;
+}
+
+.vert-modal-header,
+.vert-modal-footer {
+  background-color: #ffc107 !important;
+}
+
+.vert-modal-body {
+  background-color: #ffc107 !important;
+}
+
+.vert-modal-container {
+  text-align: center;
+}
+
 #root,
 body,
 html {
   height: 100%;
+}
+
+body {
+  background-color: #181818 !important;
 }
