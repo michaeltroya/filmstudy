@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
 
 const VertModal = ({
   show,
@@ -15,14 +15,6 @@ const VertModal = ({
     favouriteProducers
   }
 }) => {
-  const hasZeros = number => {
-    if (number.split('')[0] === '0') {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const singleOrPlural = (word, number) => {
     if (number.split('')[1] === '1') {
       return `${word}`;
@@ -31,29 +23,29 @@ const VertModal = ({
     }
   };
 
+  const formatTime = (word, number) => {
+    let finalString;
+
+    if (number.split('')[0] === '0') {
+      finalString = `${number.split('')[1]} ${singleOrPlural(word, number)}`;
+    } else {
+      finalString = `${number} ${singleOrPlural(word, number)}`;
+    }
+
+    return finalString;
+  };
+
   return (
-    <Modal show={show} onHide={onHide} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
+    <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Your Results</Modal.Title>
+        <Modal.Title>Your Results</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h2>You've Watched...</h2>
+        <h2>Based on your selections you've watched...</h2>
 
-        <h2>{totalRuntimeDays === '0' ? null : `${totalRuntimeDays} Day(s)`}</h2>
-        {totalRuntimeHours ? (
-          hasZeros(totalRuntimeHours) ? (
-            <h2>{`${totalRuntimeHours.split('')[1]} ${singleOrPlural('Hour', totalRuntimeHours)}`}</h2>
-          ) : (
-            <h2>{`${totalRuntimeHours} ${singleOrPlural('Hour', totalRuntimeHours)}`}</h2>
-          )
-        ) : null}
-        {totalRuntimeMinutes ? (
-          hasZeros(totalRuntimeMinutes) ? (
-            <h2>{`${totalRuntimeMinutes.split('')[1]} ${singleOrPlural('Minute', totalRuntimeMinutes)}`}</h2>
-          ) : (
-            <h2>{`${totalRuntimeMinutes} ${singleOrPlural('Minute', totalRuntimeMinutes)}`}</h2>
-          )
-        ) : null}
+        {totalRuntimeDays === '0' ? null : <h2>{`${totalRuntimeDays} Day(s)`}</h2>}
+        {totalRuntimeHours ? <h2>{formatTime('Hour', totalRuntimeHours)}</h2> : null}
+        {totalRuntimeMinutes ? <h2>{formatTime('Minute', totalRuntimeMinutes)}</h2> : null}
 
         <h2>{totalRevenue}</h2>
 
