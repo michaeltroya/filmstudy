@@ -20,7 +20,7 @@ const App = () => {
   const [selectedMoviesDetails, setSelectedMoviesDetails] = useState({});
   const [movieCalculations, setMovieCalculations] = useState({});
 
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(true);
 
   useEffect(() => {
     let movieDiscoverList = [];

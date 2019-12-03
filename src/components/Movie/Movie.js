@@ -13,11 +13,11 @@ const Movie = ({ movie, selectedMovies, setSelectedMovies }) => {
   };
 
   return (
-    <Col xs={6} sm={3} md={3}>
+    <Col xs={6} md={4} lg={3} xl={2}>
       <Card className={`${selectedMovies.includes(movie.id) ? 'movie movie-selected' : 'movie'}`} onClick={addOrRemoveSelected}>
         <Card.Img variant="top" src={`${IMG_URL}${movie.poster_path}`} />
         <Card.Body className="d-flex justify-content-center">
-          <Card.Title>{movie.title}</Card.Title>
+          <Card.Title className="text-center">{movie.title}</Card.Title>
         </Card.Body>
       </Card>
     </Col>

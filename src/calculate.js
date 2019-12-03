@@ -2,24 +2,25 @@ import numeral from 'numeral';
 
 const calculate = ({ revenues, runtimes, genres, directors, producers }) => {
   let totalRevenue = 0;
-  let totalRuntime = 0;
   let favouriteGenres = '';
   let favouriteDirectors = '';
   let favouriteProducers = '';
+  let totalRuntimeDays = '';
+  let totalRuntimeHours = '';
+  let totalRuntimeMinutes = '';
 
   let results = {};
 
   const getModes = array => {
-    var frequency = {}; // array of frequency.
-    var maxFreq = 0; // holds the max frequency.
+    var frequency = {};
+    var maxFreq = 0;
     var modes = [];
 
     for (var i in array) {
-      frequency[array[i]] = (frequency[array[i]] || 0) + 1; // increment frequency.
+      frequency[array[i]] = (frequency[array[i]] || 0) + 1;
 
       if (frequency[array[i]] > maxFreq) {
-        // is this frequency > max so far ?
-        maxFreq = frequency[array[i]]; // update max.
+        maxFreq = frequency[array[i]];
       }
     }
 
@@ -40,13 +41,30 @@ const calculate = ({ revenues, runtimes, genres, directors, producers }) => {
     return total;
   };
 
+  totalRuntimeDays = numeral(getTotal(runtimes))
+    .format('00:00:00')
+    .split(':')[0];
+  totalRuntimeHours = numeral(getTotal(runtimes))
+    .format('00:00:00')
+    .split(':')[1];
+  totalRuntimeMinutes = numeral(getTotal(runtimes))
+    .format('00:00:00')
+    .split(':')[2];
+
   totalRevenue = numeral(getTotal(revenues)).format('$0,0.00');
-  totalRuntime = numeral(getTotal(runtimes)).format('00:00:00');
   favouriteGenres = getModes(genres);
   favouriteDirectors = getModes(directors);
   favouriteProducers = getModes(producers);
 
-  results = { totalRevenue, totalRuntime, favouriteGenres, favouriteDirectors, favouriteProducers };
+  results = {
+    totalRevenue,
+    totalRuntimeMinutes,
+    totalRuntimeHours,
+    totalRuntimeDays,
+    favouriteGenres,
+    favouriteDirectors,
+    favouriteProducers
+  };
 
   return results;
 };

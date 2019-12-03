@@ -15,23 +15,15 @@
   background-color: lightcoral !important;
 }
 
-.test {
-  width: 100%;
-  position: relative;
-}
-
 .button-bar {
   position: fixed;
   display: flex !important ;
   justify-content: space-evenly !important;
-  background-color: rgb(78, 78, 78);
+  background-color: #eaeaea;
   padding: 1rem 2rem;
   width: 100%;
   bottom: 0;
   z-index: 10;
-}
-.test {
-  height: 100vh;
 }
 
 #root,
