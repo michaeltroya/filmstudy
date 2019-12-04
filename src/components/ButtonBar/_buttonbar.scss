@@ -1,10 +1,14 @@
 .button-bar {
   position: fixed;
   display: flex !important ;
-  justify-content: space-between !important;
+  justify-content: space-between;
   background-color: #0a0a0a;
   padding: 1.5rem 1rem;
   width: 100%;
   bottom: 0;
   z-index: 10;
+}
+
+.load-btn {
+  margin: auto;
 }

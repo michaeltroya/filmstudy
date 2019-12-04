@@ -1,21 +1,16 @@
 @include media-breakpoint-up(sm) {
-  body {
-    background-color: greenyellow !important;
+  .button-bar {
+    justify-content: space-evenly !important;
+  }
+
+  .load-btn {
+    margin: initial;
   }
 }
 @include media-breakpoint-up(md) {
-  body {
-    background-color: aqua !important;
-  }
 }
 @include media-breakpoint-up(lg) {
-  body {
-    background-color: red !important;
-  }
 }
 
 @include media-breakpoint-up(xl) {
-  body {
-    background-color: purple !important;
-  }
 }

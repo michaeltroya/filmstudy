@@ -14,7 +14,7 @@ import { Container } from 'react-bootstrap';
 import './styles/index.scss';
 
 const App = () => {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(3);
   const [allMovies, setAllMovies] = useState([]);
   const [selectedMovies, setSelectedMovies] = useState([]);
   const [selectedMoviesDetails, setSelectedMoviesDetails] = useState({});

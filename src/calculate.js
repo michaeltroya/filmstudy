@@ -30,7 +30,7 @@ const calculate = ({ revenues, runtimes, genres, directors, producers }) => {
       }
     }
 
-    return modes.slice(0, 3);
+    return modes.slice(0, 2);
   };
 
   const getTotal = array => {
@@ -43,17 +43,13 @@ const calculate = ({ revenues, runtimes, genres, directors, producers }) => {
 
   const convertTime = value => {
     let days = Math.floor(value / 1440);
-
     let minutes = value % 60;
-
     let hours = Math.floor(value / 60) % 24;
-
     let time = { days, hours, minutes };
-
     return time;
   };
 
-  totalRevenue = numeral(getTotal(revenues)).format('$0,0.00');
+  totalRevenue = numeral(getTotal(revenues)).format('$0,0');
 
   totalRuntimeDays = convertTime(getTotal(runtimes)).days;
   totalRuntimeHours = convertTime(getTotal(runtimes)).hours;

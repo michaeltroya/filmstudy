@@ -39,9 +39,9 @@ const VertModal = ({
                 </div>
               </div>
             </Col>
-            <Col>
+            <Col xs={12}>
               <div className="result-container">
-                <h5>You've Spent:</h5>
+                <h5>Your Total Watch Time:</h5>
                 <div className="result-box runtime-box">
                   <Row>
                     {totalRuntimeDays === 0 ? null : (
@@ -71,11 +71,54 @@ const VertModal = ({
                 </div>
               </div>
             </Col>
+            <Col xs={12}>
+              <div className="result-container">
+                <h5>Your Favourite:</h5>
+                <Row>
+                  <Col xs={12}>
+                    <ul className="result-box list-box">
+                      {favouriteGenres === undefined ? null : favouriteGenres.length === 1 ? <h6>Genre</h6> : <h6>Genres</h6>}
+                      {favouriteGenres === undefined || favouriteGenres.length === 0
+                        ? null
+                        : favouriteGenres.map((item, i) => (
+                            <li key={i}>
+                              <h5>{item}</h5>
+                            </li>
+                          ))}
+                    </ul>
+                  </Col>
+                  <Col xs={12}>
+                    <ul className="result-box list-box">
+                      {favouriteDirectors === undefined ? null : favouriteDirectors.length === 1 ? <h6>Director</h6> : <h6>Directors</h6>}
+                      {favouriteDirectors === undefined || favouriteDirectors.length === 0
+                        ? null
+                        : favouriteDirectors.map((item, i) => (
+                            <li key={i}>
+                              <h5>{item}</h5>
+                            </li>
+                          ))}
+                    </ul>
+                  </Col>
+                  <Col xs={12}>
+                    <ul className="result-box list-box">
+                      {favouriteProducers === undefined ? null : favouriteProducers.length === 1 ? <h6>Producer</h6> : <h6>Producers</h6>}
+                      {favouriteProducers === undefined || favouriteProducers.length === 0
+                        ? null
+                        : favouriteProducers.map((item, i) => (
+                            <li key={i}>
+                              <h5>{item}</h5>
+                            </li>
+                          ))}
+                    </ul>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
           </Row>
         </Container>
       </Modal.Body>
       <Modal.Footer className="vert-modal-footer">
-        <Button variant="outline-dark" onClick={onHide}>
+        <Button variant="danger" onClick={onHide}>
           Close
         </Button>
       </Modal.Footer>

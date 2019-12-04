@@ -2,9 +2,14 @@
   background-color: $darker-color !important;
 }
 
-.vert-modal-header,
+.vert-modal-header {
+  display: none !important;
+}
 .vert-modal-footer {
   background-color: $main-color !important;
+  justify-content: center !important;
+  border: 0 !important;
+  padding: 0 0 1rem 0 !important;
 }
 
 .vert-modal-title {
@@ -12,6 +17,7 @@
 }
 
 .vert-modal-body {
+  padding: 1rem 0.5rem 0 !important;
   background-color: $main-color !important;
 }
 
@@ -21,7 +27,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 1rem 0;
+  margin-bottom: 0.8rem;
 }
 
 .result-box {
@@ -36,6 +42,8 @@
   padding: 0.6rem 1rem;
 
   h4 {
+    margin: 0 !important;
+    padding: 0 !important;
     font-weight: bold;
   }
 }
@@ -54,5 +62,34 @@
   h4 {
     margin: 0 !important;
     padding: 0 !important;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+
+  h6 {
+    font-weight: 100;
+  }
+}
+
+.list-box {
+  list-style: none;
+  flex-direction: column;
+  padding: 0.4rem !important;
+  margin: 0 0 1rem;
+
+  h5,
+  h6 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  h6 {
+    font-weight: 100;
   }
 }
