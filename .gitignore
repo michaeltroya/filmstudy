@@ -24,3 +24,8 @@ yarn-error.log*
 
 #api keys
 /src/util
+
+# Local Netlify folder
+.netlify
+netlify.toml
+
