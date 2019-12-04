@@ -1,7 +1,9 @@
+//MOVIES LIST COMPONENT
 .movies-container {
   margin: 2rem 0 6rem;
 }
 
+//MOVIE COMPONENT
 .movie {
   cursor: pointer;
   margin-bottom: 1.5rem;
@@ -17,4 +19,17 @@
   margin-bottom: 1.5rem;
   background-color: $accent-color !important;
   color: white;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: 'Alatsi', sans-serif;
+  line-height: 1.4rem;
+}
+
+//BOOTSTRAP CARD STYLES
+
+.card-body {
+  padding: 0.5rem 0.5rem 0rem !important;
 }

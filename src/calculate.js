@@ -41,17 +41,24 @@ const calculate = ({ revenues, runtimes, genres, directors, producers }) => {
     return total;
   };
 
-  totalRuntimeDays = numeral(getTotal(runtimes))
-    .format('00:00:00')
-    .split(':')[0];
-  totalRuntimeHours = numeral(getTotal(runtimes))
-    .format('00:00:00')
-    .split(':')[1];
-  totalRuntimeMinutes = numeral(getTotal(runtimes))
-    .format('00:00:00')
-    .split(':')[2];
+  const convertTime = value => {
+    let days = Math.floor(value / 1440);
+
+    let minutes = value % 60;
+
+    let hours = Math.floor(value / 60) % 24;
+
+    let time = { days, hours, minutes };
+
+    return time;
+  };
 
   totalRevenue = numeral(getTotal(revenues)).format('$0,0.00');
+
+  totalRuntimeDays = convertTime(getTotal(runtimes)).days;
+  totalRuntimeHours = convertTime(getTotal(runtimes)).hours;
+  totalRuntimeMinutes = convertTime(getTotal(runtimes)).minutes;
+
   favouriteGenres = getModes(genres);
   favouriteDirectors = getModes(directors);
   favouriteProducers = getModes(producers);

@@ -7,15 +7,52 @@
   background-color: $main-color !important;
 }
 
+.vert-modal-title {
+  font-size: 1.1rem !important;
+}
+
 .vert-modal-body {
   background-color: $main-color !important;
 }
 
-.vert-modal-container {
-  text-align: center;
-}
-
-.info-container {
+.result-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.result-box {
+  border-radius: 2rem;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.revenue-box {
+  padding: 0.6rem 1rem;
+
+  h4 {
+    font-weight: bold;
+  }
+}
+
+.runtime-box {
+  padding: 0.5rem 1.5rem;
+}
+
+.runtime-col {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  h6,
+  h4 {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }

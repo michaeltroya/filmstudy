@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
 
@@ -16,73 +16,60 @@ const VertModal = ({
   }
 }) => {
   const singleOrPlural = (word, number) => {
-    if (number.split('')[1] === '1') {
+    if (number === 1) {
       return `${word}`;
     } else {
       return `${word}s`;
     }
   };
 
-  const formatTime = (word, number) => {
-    let finalString;
-
-    if (number.split('')[0] === '0') {
-      finalString = `${number.split('')[1]} ${singleOrPlural(word, number)}`;
-    } else {
-      finalString = `${number} ${singleOrPlural(word, number)}`;
-    }
-
-    return finalString;
-  };
-
   return (
     <Modal show={show} onHide={onHide} centered className="vert-modal-backdrop">
       <Modal.Header closeButton className="vert-modal-header">
-        <Modal.Title as="h5">Based on the movies you've watched...</Modal.Title>
+        <Modal.Title className="vert-modal-title">Based on your selections...</Modal.Title>
       </Modal.Header>
       <Modal.Body className="vert-modal-body">
-        <Container className="vert-modal-container">
+        <Container>
           <Row>
-            <div className="info-container">
-              <h4>Your movies have made... </h4>
-              <h4>{totalRevenue}</h4>
-            </div>
-          </Row>
+            <Col xs={12}>
+              <div className="result-container">
+                <h5>Your movies generated:</h5>
+                <div className="result-box revenue-box">
+                  <h4 className="m-0">{totalRevenue}</h4>
+                </div>
+              </div>
+            </Col>
+            <Col>
+              <div className="result-container">
+                <h5>You've Spent:</h5>
+                <div className="result-box runtime-box">
+                  <Row>
+                    {totalRuntimeDays === 0 ? null : (
+                      <Col className="runtime-col">
+                        <h4>{totalRuntimeDays}</h4>
+                        <h6>{singleOrPlural('Day', totalRuntimeDays)}</h6>
+                      </Col>
+                    )}
 
-          <Row>
-            <h3>You've spent... </h3>
-          </Row>
-          <Row>
-            {totalRuntimeDays === '0' ? null : (
-              <Col>
-                <h3>{`${totalRuntimeDays} Day(s)`}</h3>
-              </Col>
-            )}
-            <Col>{totalRuntimeHours ? <h2>{formatTime('Hour', totalRuntimeHours)}</h2> : null}</Col>
-            <Col>{totalRuntimeMinutes ? <h2>{formatTime('Minute', totalRuntimeMinutes)}</h2> : null}</Col>
-          </Row>
-          <Row>
-            <h3>Your Favourite... </h3>
-          </Row>
-          <Row>
-            <Col>
-              <ul>
-                {favouriteDirectors === undefined || favouriteDirectors.length === 0
-                  ? null
-                  : favouriteDirectors.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
-            </Col>
-            <Col>
-              <ul>
-                {favouriteProducers === undefined || favouriteProducers.length === 0
-                  ? null
-                  : favouriteProducers.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
-            </Col>
-            <Col>
-              <ul>
-                {favouriteGenres === undefined || favouriteGenres.length === 0 ? null : favouriteGenres.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
+                    <Col className="runtime-col">
+                      {totalRuntimeHours ? (
+                        <Fragment>
+                          <h4>{totalRuntimeHours}</h4>
+                          <h6>{singleOrPlural('Hour', totalRuntimeHours)}</h6>
+                        </Fragment>
+                      ) : null}
+                    </Col>
+                    <Col className="runtime-col">
+                      {totalRuntimeMinutes ? (
+                        <Fragment>
+                          <h4>{totalRuntimeMinutes}</h4>
+                          <h6>{singleOrPlural('Minute', totalRuntimeMinutes)}</h6>
+                        </Fragment>
+                      ) : null}
+                    </Col>
+                  </Row>
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>

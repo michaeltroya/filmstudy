@@ -10,7 +10,7 @@ const ButtonBar = ({ handleClear, handleLoadMore, handleGo, selectedMoviesIsEmpt
           Go
         </Button>
       )}
-      <Button onClick={handleLoadMore} variant="outline-light">
+      <Button onClick={handleLoadMore} variant="outline-light" className="m-auto">
         Load More Movies
       </Button>
       {selectedMoviesIsEmpty ? null : (

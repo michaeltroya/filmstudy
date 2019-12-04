@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMG_URL } from '../../util/api';
+import { IMG_URL } from '../../../util/api';
 
 import { Col, Card } from 'react-bootstrap';
 
@@ -17,7 +17,7 @@ const Movie = ({ movie, selectedMovies, setSelectedMovies }) => {
       <Card className={`${selectedMovies.includes(movie.id) ? 'movie-selected' : 'movie'}`} onClick={addOrRemoveSelected}>
         <Card.Img variant="top" src={`${IMG_URL}${movie.poster_path}`} />
         <Card.Body className="d-flex justify-content-center">
-          <Card.Title className="text-center">{movie.title}</Card.Title>
+          <Card.Title className="movie-title">{movie.title}</Card.Title>
         </Card.Body>
       </Card>
     </Col>
