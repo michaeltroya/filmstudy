@@ -1,0 +1,10 @@
+.button-bar {
+  position: fixed;
+  display: flex !important ;
+  justify-content: space-evenly !important;
+  background-color: #0a0a0a;
+  padding: 1rem 2rem;
+  width: 100%;
+  bottom: 0;
+  z-index: 10;
+}

@@ -36,19 +36,21 @@ const VertModal = ({
   };
 
   return (
-    <Modal show={show} onHide={onHide} size="lg" centered className="vert-modal-backdrop">
+    <Modal show={show} onHide={onHide} centered className="vert-modal-backdrop">
       <Modal.Header closeButton className="vert-modal-header">
-        <Modal.Title>Based on the movies you've watched...</Modal.Title>
+        <Modal.Title as="h5">Based on the movies you've watched...</Modal.Title>
       </Modal.Header>
       <Modal.Body className="vert-modal-body">
         <Container className="vert-modal-container">
           <Row>
-            <h3>Your movies have made... </h3>
-            <h4>{totalRevenue}</h4>
+            <div className="info-container">
+              <h4>Your movies have made... </h4>
+              <h4>{totalRevenue}</h4>
+            </div>
           </Row>
 
           <Row>
-            <h2>You've spent... </h2>
+            <h3>You've spent... </h3>
           </Row>
           <Row>
             {totalRuntimeDays === '0' ? null : (

@@ -1,0 +1,21 @@
+.vert-modal-backdrop {
+  background-color: $darker-color !important;
+}
+
+.vert-modal-header,
+.vert-modal-footer {
+  background-color: $main-color !important;
+}
+
+.vert-modal-body {
+  background-color: $main-color !important;
+}
+
+.vert-modal-container {
+  text-align: center;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+}

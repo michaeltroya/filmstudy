@@ -1,0 +1,20 @@
+.movies-container {
+  margin: 2rem 0 6rem;
+}
+
+.movie {
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  background-color: $main-color !important;
+
+  &:hover {
+    background-color: #fad051 !important;
+  }
+}
+
+.movie-selected {
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  background-color: $accent-color !important;
+  color: white;
+}

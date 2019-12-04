@@ -1,0 +1,22 @@
+//COLORS
+$main-color: #ffc107;
+$accent-color: #dc3545;
+$white-color: #fff;
+$dark-color: #181818;
+$darker-color: #0a0a0a;
+
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+//MIXINS
+@import '../../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../../node_modules/bootstrap/scss/mixins/breakpoints';
+
+//COMPONENTS
+@import './reset';
+@import '../components/ButtonBar/buttonbar';
+@import '../components/MovieList/movielist';
+@import '../components/VertModal/vertmodal';
+
+//MEDIA QUERIES
+@import './responsive';

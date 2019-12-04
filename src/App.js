@@ -11,7 +11,7 @@ import calculate from './calculate';
 
 import { Container } from 'react-bootstrap';
 
-import './index.css';
+import './styles/index.scss';
 
 const App = () => {
   const [page, setPage] = useState(2);
