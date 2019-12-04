@@ -36,6 +36,7 @@ const VertModal = ({
                 <h5>Your movies generated:</h5>
                 <div className="result-box revenue-box">
                   <h4 className="m-0">{totalRevenue}</h4>
+                  <h6>Revenue</h6>
                 </div>
               </div>
             </Col>
@@ -59,14 +60,17 @@ const VertModal = ({
                         </Fragment>
                       ) : null}
                     </Col>
-                    <Col className="runtime-col">
-                      {totalRuntimeMinutes ? (
-                        <Fragment>
-                          <h4>{totalRuntimeMinutes}</h4>
-                          <h6>{singleOrPlural('Minute', totalRuntimeMinutes)}</h6>
-                        </Fragment>
-                      ) : null}
-                    </Col>
+
+                    {totalRuntimeMinutes === 0 ? null : (
+                      <Col className="runtime-col">
+                        {totalRuntimeMinutes ? (
+                          <Fragment>
+                            <h4>{totalRuntimeMinutes}</h4>
+                            <h6>{singleOrPlural('Minute', totalRuntimeMinutes)}</h6>
+                          </Fragment>
+                        ) : null}
+                      </Col>
+                    )}
                   </Row>
                 </div>
               </div>

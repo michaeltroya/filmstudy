@@ -40,11 +40,17 @@
 
 .revenue-box {
   padding: 0.6rem 1rem;
-
+  flex-direction: column;
   h4 {
     margin: 0 !important;
     padding: 0 !important;
     font-weight: bold;
+  }
+
+  h6 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 100;
   }
 }
 
