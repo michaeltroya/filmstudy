@@ -2,7 +2,7 @@
   position: fixed;
   display: flex !important ;
   justify-content: space-between;
-  background-color: #0a0a0a;
+  background-color: $darker-color;
   padding: 1.5rem 1rem;
   width: 100%;
   bottom: 0;
@@ -11,4 +11,8 @@
 
 .load-btn {
   margin: auto;
+}
+
+.btn-danger {
+  color: $darker-color !important;
 }

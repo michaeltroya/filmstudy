@@ -73,7 +73,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <VertModal show={modalShow} movieCalculations={movieCalculations} onHide={() => setModalShow(false)} />
+      <VertModal show={modalShow} movieCalculations={movieCalculations} onHide={() => setModalShow(false)} handleClear={handleClear} />
       <Container fluid>
         <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
       </Container>

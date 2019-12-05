@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
 
 const VertModal = ({
+  handleClear,
   show,
   onHide,
   movieCalculations: {
@@ -122,8 +123,17 @@ const VertModal = ({
         </Container>
       </Modal.Body>
       <Modal.Footer className="vert-modal-footer">
-        <Button variant="danger" onClick={onHide}>
-          Close
+        <Button variant="light" onClick={onHide}>
+          Make Changes
+        </Button>
+        <Button
+          variant="dark"
+          onClick={() => {
+            handleClear();
+            onHide();
+          }}
+        >
+          Restart
         </Button>
       </Modal.Footer>
     </Modal>

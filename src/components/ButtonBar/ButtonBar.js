@@ -6,7 +6,7 @@ const ButtonBar = ({ handleClear, handleLoadMore, handleGo, selectedMoviesIsEmpt
   return (
     <div className="button-bar">
       {selectedMoviesIsEmpty ? null : (
-        <Button variant="outline-warning" onClick={handleGo}>
+        <Button variant="warning" onClick={handleGo}>
           Go
         </Button>
       )}
@@ -14,7 +14,7 @@ const ButtonBar = ({ handleClear, handleLoadMore, handleGo, selectedMoviesIsEmpt
         Load More Movies
       </Button>
       {selectedMoviesIsEmpty ? null : (
-        <Button variant="outline-danger" onClick={handleClear}>
+        <Button variant="danger" onClick={handleClear}>
           Clear
         </Button>
       )}
