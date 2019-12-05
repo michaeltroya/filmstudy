@@ -43,7 +43,7 @@ const VertModal = ({
             </Col>
             <Col xs={12}>
               <div className="result-container">
-                <h5>Your Total Watch Time:</h5>
+                <h5>Your total watch time:</h5>
                 <div className="result-box runtime-box">
                   <Row>
                     {totalRuntimeDays === 0 ? null : (
@@ -78,7 +78,7 @@ const VertModal = ({
             </Col>
             <Col xs={12}>
               <div className="result-container">
-                <h5>Your Favourite:</h5>
+                <h5>Your favourite:</h5>
                 <Row>
                   <Col xs={12}>
                     <ul className="result-box list-box">
