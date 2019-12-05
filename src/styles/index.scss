@@ -15,6 +15,7 @@ $darker-color: #0a0a0a;
 
 //COMPONENTS
 @import './reset';
+@import '../components/Header/header';
 @import '../components/ButtonBar/buttonbar';
 @import '../components/MovieList/movielist';
 @import '../components/VertModal/vertmodal';

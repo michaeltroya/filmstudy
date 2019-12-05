@@ -3,13 +3,12 @@ import { KEY } from './util/api';
 
 import axios from 'axios';
 
+import Header from './components/Header/Header';
 import MovieList from './components/MovieList/MovieList';
 import ButtonBar from './components/ButtonBar/ButtonBar';
 import VertModal from './components/VertModal/VertModal';
 
 import calculate from './calculate';
-
-import { Container } from 'react-bootstrap';
 
 import './styles/index.scss';
 
@@ -74,9 +73,9 @@ const App = () => {
   return (
     <Fragment>
       <VertModal show={modalShow} movieCalculations={movieCalculations} onHide={() => setModalShow(false)} handleClear={handleClear} />
-      <Container fluid>
-        <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
-      </Container>
+
+      <Header />
+      <MovieList allMovies={allMovies} selectedMovies={selectedMovies} setSelectedMovies={setSelectedMovies} />
       <ButtonBar
         handleClear={handleClear}
         handleLoadMore={() => setPage(page + 2)}
