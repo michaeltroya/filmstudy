@@ -8,6 +8,20 @@
   }
 }
 @include media-breakpoint-up(md) {
+  .header {
+    padding: 8rem 0;
+  }
+
+  .how-to {
+    margin: 0;
+    h5 {
+      text-align: initial;
+      font-size: 3rem;
+    }
+    h6 {
+      font-size: 1.2rem;
+    }
+  }
 }
 @include media-breakpoint-up(lg) {
 }
