@@ -1,5 +1,5 @@
 .header {
-  padding: 4rem 0 2rem;
+  padding: 3rem 0 2rem;
   color: white;
   background: $dark-color;
 }
@@ -16,12 +16,21 @@
 }
 
 .how-to {
-  margin: 3rem 0 0 0;
-  color: #848484;
-  h5 {
-    color: whitesmoke;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
+  position: absolute;
+  right: 5%;
+  top: -20%;
+  color: $main-color;
+}
+
+.instructions {
+  .arrow::after {
+    border-bottom-color: $main-color !important;
+  }
+  .popover-header {
+    background-color: $main-color;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
   }
 }

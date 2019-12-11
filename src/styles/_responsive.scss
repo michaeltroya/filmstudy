@@ -9,22 +9,31 @@
 }
 @include media-breakpoint-up(md) {
   .header {
-    padding: 8rem 0;
+    padding: 5rem 0;
+  }
+
+  .header-logo {
+    width: 75%;
   }
 
   .how-to {
-    margin: 0;
-    h5 {
-      text-align: initial;
-      font-size: 3rem;
-    }
-    h6 {
-      font-size: 1.2rem;
-    }
+    right: -5%;
+    top: -25%;
   }
 }
 @include media-breakpoint-up(lg) {
+  .header-logo {
+    width: 55%;
+  }
+  .how-to {
+    right: 0%;
+    top: -20%;
+  }
 }
 
 @include media-breakpoint-up(xl) {
+  .how-to {
+    right: 0%;
+    top: -20%;
+  }
 }
